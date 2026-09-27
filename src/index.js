@@ -1,10 +1,40 @@
 import "./style.css";
+import processWeather from "./process.js";
+import { displayWeather } from "./display.js";
 
-console.log("Webpack is working!");
+const locationform = document.querySelector("#location-form");
+const locationinput = document.querySelector("#location-input");
+const button = document.querySelector("#toggle-button");
 
-const content = document.querySelector("#content");
+let currentUnit = "C";
+let currentWeatherData = null;
 
-const heading = document.createElement("h1");
-heading.textContent = "Hello Webpack!";
+const renderWeather = async (location) => {
+  try {
+    const weatherData = await processWeather(location);
 
-content.appendChild(heading);
+    currentWeatherData = weatherData;
+
+    displayWeather(weatherData, currentUnit);
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+  }
+};
+
+locationform.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const location = locationinput.value;
+
+  renderWeather(location);
+});
+
+button.addEventListener("click", () => {
+  currentUnit = currentUnit === "C" ? "F" : "C";
+
+  if (currentWeatherData) {
+    displayWeather(currentWeatherData, currentUnit);
+  }
+});
+
+export { renderWeather };

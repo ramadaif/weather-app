@@ -1,13 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Project</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <form id="location-form">
+      <label for="location-input">Location</label>
+      <input
+        type="text"
+        id="location-input"
+        name="location"
+        placeholder="e.g. Cairo"
+        required
+      />
+      <button type="submit">Get Weather</button>
+    </form>
 
-    <div id="content"></div>
+    <div id="loading" hidden>Loading…</div>
 
-</body>
+    <div id="weather-display">
+      <!-- TODO (Step 5): your render function will fill this in with
+         the location name, temperature, condition, icon, etc. -->
+    </div>
+
+    <button id="unit-toggle" hidden>Show °F</button>
+  </body>
 </html>

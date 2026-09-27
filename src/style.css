@@ -1,7 +1,251 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-    text-align: center;
+body {
+  min-height: 100vh;
+
+  font-family: "Inter", sans-serif;
+  color: #55423e;
+
+  background:
+    radial-gradient(circle at 10% 20%, #f9e2dc 0, transparent 25%),
+    radial-gradient(circle at 90% 80%, #f5ddd6 0, transparent 25%),
+    #fff9f6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 80px 20px 60px;
+}
+
+
+/* =========================
+   SEARCH FORM
+========================= */
+
+#location-form {
+  width: min(620px, 100%);
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  padding: 10px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  border: 1px solid #ead8d2;
+  border-radius: 18px;
+
+  box-shadow: 0 15px 40px rgba(103, 72, 64, 0.08);
+}
+
+#location-form label {
+  display: none;
+}
+
+#location-input {
+  flex: 1;
+
+  height: 48px;
+
+  padding: 0 16px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 15px;
+  color: #55423e;
+}
+
+#location-input::placeholder {
+  color: #b8a19a;
+}
+
+#location-form button {
+  height: 48px;
+
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: #b98272;
+  color: white;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+#location-form button:hover {
+  background: #a86f60;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+#loading {
+  margin-top: 25px;
+
+  color: #a88a82;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   WEATHER CARD
+========================= */
+
+#weather-display {
+  width: min(620px, 100%);
+
+  margin-top: 28px;
+  padding: 38px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid #eadbd6;
+  border-radius: 26px;
+
+  box-shadow:
+    0 20px 50px rgba(103, 72, 64, 0.10),
+    0 3px 10px rgba(103, 72, 64, 0.04);
+
+  text-align: center;
+}
+
+
+/* City */
+
+#weather-display h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 36px;
+  font-weight: 400;
+
+  color: #654b45;
+
+  margin-bottom: 28px;
+}
+
+
+/* Weather information */
+
+#weather-display p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 18px;
+  margin: 10px 0;
+
+  background: #fff8f5;
+
+  border: 1px solid #f0e2de;
+  border-radius: 13px;
+
+  color: #806c66;
+
+  font-size: 14px;
+}
+
+
+/* Make the temperature stand out */
+
+#weather-display p:first-of-type {
+  background: #f8e8e3;
+
+  color: #a96857;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   UNIT BUTTON
+========================= */
+
+#unit-toggle {
+  margin-top: 18px;
+
+  padding: 10px 20px;
+
+  border: 1px solid #ddc0b7;
+  border-radius: 999px;
+
+  background: #fff9f6;
+  color: #9b6759;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+#unit-toggle:hover {
+  background: #f4e1db;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 45px 15px;
+  }
+
+  #location-form {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  #location-input {
+    width: 100%;
+  }
+
+  #location-form button {
+    width: 100%;
+  }
+
+  #weather-display {
+    padding: 28px 18px;
+  }
+
+  #weather-display h2 {
+    font-size: 30px;
+  }
+
+  #weather-display p {
+    font-size: 13px;
+  }
+
+  #weather-display p:first-of-type {
+    font-size: 16px;
+  }
 }
